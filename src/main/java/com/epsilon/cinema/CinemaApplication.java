@@ -5,12 +5,16 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.epsilon.cinema.Service.CinemaInitImpl;
 import com.epsilon.cinema.entities.Film;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 @SpringBootApplication
+@EnableWebMvc
+@EnableSwagger2
 public class CinemaApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
