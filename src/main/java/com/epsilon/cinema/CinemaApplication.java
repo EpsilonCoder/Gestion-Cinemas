@@ -29,15 +29,15 @@ public class CinemaApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		
 		repositoryRestConfiguration.exposeIdsFor(Film.class);
-		//cinemaInitImpl.initVilles();
-		//cinemaInitImpl.initCinemas();
-		//cinemaInitImpl.initSalles();
-		//cinemaInitImpl.initSeances();
-		//cinemaInitImpl.initPlaces();
-		//cinemaInitImpl.initCategories();
-		//cinemaInitImpl.initFilms();
-		//cinemaInitImpl.initProjections();
-		//cinemaInitImpl.initTickets();
+		cinemaInitImpl.initVilles();
+		cinemaInitImpl.initCinemas();
+		cinemaInitImpl.initSalles();
+		cinemaInitImpl.initSeances();
+		cinemaInitImpl.initPlaces();
+		cinemaInitImpl.initCategories();
+		cinemaInitImpl.initFilms();
+		cinemaInitImpl.initProjections();
+		cinemaInitImpl.initTickets();
 			
 	}
 
