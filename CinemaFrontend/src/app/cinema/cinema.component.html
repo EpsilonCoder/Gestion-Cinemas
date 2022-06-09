@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <ul class="list-group" *ngIf="villes">
+        <li [ngClass]="v==currentVille?'active':''" *ngFor="let v of villes._embedded.villes"
+          class="list-group-item pointeur" (click)="onGetCinemas(v)">
+          {{v.name}}
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-md-10">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h1>Cinema</h1>
+        </div>
+        <div class="card-body">
+          <div class="card-text" *ngIf="cinemas">
+            <ul>
+              <li *ngFor="let c of cinemas._embedded.cinemas" class="nav d-inline m-1">
+                <a class="btn btn-primary pointeur" (click)="onGetSalles(c)">{{c.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row" *ngIf="salles">
+          <div *ngFor="let s of salles._embedded.salles" class="col-md-6">
+            <div class="card">
+              <div class="card-header text-white bg-primary">{{s.name}}</div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card-body" *ngIf="s.projections">
+                    <img src="{{cinemaService.host+'/imageFilm/'+s.projections._embedded.projections[0].film.id}}"
+                      width="100%" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <ul class="list-group">
+                    <li class="list-group-item">Séances:</li>
+                    <li (click)="onGetTicketsPlaces(p)" *ngFor="let p of s.projections._embedded.projections"
+                      class="list-group-item">
+                      {{p.seance.heureDebut|date:"HH:mm"}} => Prix {{p.prix|number:'0.00'}} Fcfa
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
